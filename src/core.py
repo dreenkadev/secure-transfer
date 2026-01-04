@@ -130,7 +130,7 @@ class SecureTransfer:
             sock.send(struct.pack('>I', 0))
             
             duration = time.time() - start_time
-            print(f"\n\n{Colors.GREEN}✓ Transfer complete!{Colors.RESET}")
+            print(f"\n\n{Colors.GREEN}[OK] Transfer complete!{Colors.RESET}")
             print(f"  Duration: {duration:.1f}s")
             print(f"  Average speed: {self.format_size(file_size / duration)}/s")
             
@@ -196,11 +196,11 @@ class SecureTransfer:
             actual_checksum = self.calculate_checksum(filepath)
             
             if actual_checksum == expected_checksum:
-                print(f"\n\n{Colors.GREEN}✓ Transfer complete!{Colors.RESET}")
+                print(f"\n\n{Colors.GREEN}[OK] Transfer complete!{Colors.RESET}")
                 print(f"  Saved to: {filepath}")
                 print(f"  Checksum verified: {Colors.GREEN}OK{Colors.RESET}")
             else:
-                print(f"\n\n{Colors.RED}✗ Checksum mismatch!{Colors.RESET}")
+                print(f"\n\n{Colors.RED}[FAIL] Checksum mismatch!{Colors.RESET}")
                 print(f"  Expected: {expected_checksum[:16]}...")
                 print(f"  Got: {actual_checksum[:16]}...")
             
@@ -247,7 +247,7 @@ def demo_mode():
         print(f"\r  Progress: {i}% (512.5 KB/s)  ", end='', flush=True)
         time.sleep(0.2)
     
-    print(f"\n\n{Colors.GREEN}✓ Transfer complete!{Colors.RESET}")
+    print(f"\n\n{Colors.GREEN}[OK] Transfer complete!{Colors.RESET}")
     print(f"  Duration: 5.2s")
     print(f"  Average speed: 492.3 KB/s")
     
